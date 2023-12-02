@@ -6,7 +6,7 @@
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 02:59:56 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/04 13:53:14 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:03:47 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	res[i] = '\0';
 	return (res);
 }
-/*
-char	f(unsigned int index, char ch)
-{
-	return (ch - index);
-}
-
-int	main(void)
-{
-	char	*res;
-	char	*s = "hi my name is mohamed";
-
-	res = ft_strmapi(s, &f);
-	printf("%s\n", res);
-	return (0);
-}
-*/

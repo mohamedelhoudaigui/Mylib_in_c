@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:42:29 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/05 02:32:27 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:10:23 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,16 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t				i;
+	const unsigned char	*p1;
+	const unsigned char	*p2;
 
+	p1 = (const unsigned char *)s1;
+	p2 = (const unsigned char *)s2;
 	i = 0;
 	if (n == 0)
-	{
 		return (0);
-	}
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
-	{
+	while (p1[i] && p2[i] && p1[i] == p2[i] && i < n - 1)
 		i++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return (p1[i] - p2[i]);
 }
-/*
-int	main(void)
-{
-	char	*s1 = "hello aorld";
-	char	*s2 = "hello eorld";
-	int	res;
-
-	res = ft_strncmp(s1, s2, 7);
-	printf("%d\n", res);
-	return (0);
-}
-*/

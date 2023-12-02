@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:02:46 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/01 21:51:47 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:04:09 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,3 @@ int	ft_toupper(int c)
 	}
 	return (c);
 }
-/*
-int	main(void)
-{
-	char c = 'a';
-	printf("%c\n", ft_toupper(c));
-	return (0);
-}
-*/

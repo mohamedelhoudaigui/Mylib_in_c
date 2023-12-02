@@ -6,13 +6,13 @@
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:54:26 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/04 23:43:14 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:53:36 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	i;
 	int	res;
@@ -48,15 +48,12 @@ static int	word_size(char const *s, char c, int i)
 
 static void	memory_free(char **strings, int max_index)
 {
-	while (max_index > 0)
-	{
-		free(strings[max_index]);
-		max_index--;
-	}
+	while (max_index >= 0)
+		free(strings[max_index--]);
 	free(strings);
 }
 
-static void	fill_string(char const *s, char c, char **res, int number_words)
+static int	fill_string(char const *s, char c, char **res, int number_words)
 {
 	int	i;
 	int	j;
@@ -69,17 +66,17 @@ static void	fill_string(char const *s, char c, char **res, int number_words)
 		while (s[i] == c)
 			i++;
 		size = word_size(s, c, i);
-		res[j] = (char *)malloc(sizeof(char) * (size + 1));
 		res[j] = ft_substr(s, i, size);
-		if (!res[j])
+		if (res[j] == NULL)
 		{
 			memory_free(res, j);
-			return ;
+			return (1);
 		}
 		j++;
 		i += size;
 	}
 	res[j] = NULL;
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -89,25 +86,7 @@ char	**ft_split(char const *s, char c)
 
 	number_words = count_words(s, c);
 	res = (char **)malloc(sizeof(char *) * (number_words + 1));
-	if (!res)
+	if (!res || fill_string(s, c, res, number_words))
 		return (NULL);
-	fill_string(s, c, res, number_words);
 	return (res);
 }
-/*
-int main(void)
-{
-	char	*s = "~458@ VB%$@\n45 jjk^&^\n&((jj";
-    char 	**result = ft_split(s, ' ');
-	int		i;
-
-	i = 0;
-    while (result[i])
-    {
-		printf("%s\n", result[i]);
-		free(result[i]);
-		i++;
-	}
-	free(result);
-    return 0;
-}*/

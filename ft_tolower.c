@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:11:12 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/01 21:50:10 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:04:06 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,3 @@ int	ft_tolower(int c)
 	}
 	return (c);
 }
-/*
-int	main(void)
-{
-	char c = 'A';
-	printf("%c\n", ft_tolower(c));
-	return (0);
-}
-*/

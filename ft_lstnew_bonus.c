@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 04:57:34 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/04 14:16:26 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:58:22 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,3 @@ t_list	*ft_lstnew(void *content)
 	new_node->next = NULL;
 	return (new_node);
 }
-/*
-int	main(void)
-{
-	t_list	*new_node;
-	char	*str = NULL;
-
-	new_node = ft_lstnew(str);
-	if (!new_node)
-		return (-1);
-	printf("%s\n", new_node->content);
-	return (0);
-}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 00:14:41 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/04 00:58:57 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:57:51 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ char	*ft_itoa(int n)
 	int		size;
 
 	long_n = n;
-	if (long_n > 2147483647 || long_n < -2147483648)
-		return (0);
 	if (long_n == 0)
 	{
 		res = (char *)malloc(sizeof(char) * 2);
+		if (!res)
+			return (NULL);
 		res[0] = '0';
 		res[1] = '\0';
 		return (res);
@@ -67,13 +67,3 @@ char	*ft_itoa(int n)
 	extract_numbers(long_n, res, size);
 	return (res);
 }
-/*
-int	main()
-{
-	char	*res = ft_itoa(-1);
-	// char	*res1 = itoa(2147483647);
-	printf("%s\n", res);
-	// printf("%s\n", res1);
-	return (0);
-}
-*/

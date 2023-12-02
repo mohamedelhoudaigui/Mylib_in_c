@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:51:04 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/05 03:43:45 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:04:04 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
- char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*res;
 	size_t	i;
 
 	if (!s)
 		return (NULL);
-    if (start >= ft_strlen(s))
-        return(ft_strdup(""));
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
 	if (len > ft_strlen(s + start))
 		len = ft_strlen(s + start);
 	res = (char *)malloc(len * sizeof(char) + 1);
@@ -31,12 +31,4 @@
 		res[i++] = s[start++];
 	res[i] = '\0';
 	return (res);
-}
-
-int	main(void)
-{
-//	char	*s = "hola";
-	puts(ft_substr("", 1, 1));
-//	printf("%s\n", ft_substr(s, 0, 18446744073709551615));
-	return (0);
 }

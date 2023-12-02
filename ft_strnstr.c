@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:52:54 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/05 03:25:28 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:03:56 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-/*
-int main(void)
-{
-    const char *haystack = "Hello, World!";
-    const char *needle = "World";
-    size_t len = 13;
-
-    char *result = ft_strnstr(haystack, needle, len);
-
-    if (result != NULL)
-    {
-        printf("Substring found: %s\n", result);
-    }
-    else
-    {
-        printf("Substring not found.\n");
-    }
-
-    return 0;
-}
-*/

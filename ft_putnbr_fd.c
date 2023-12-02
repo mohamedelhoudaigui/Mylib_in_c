@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 04:15:39 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/04 04:30:55 by mel-houd         ###   ########.fr       */
+/*   Created: 2023/11/06 18:17:32 by mel-houd          #+#    #+#             */
+/*   Updated: 2023/11/09 11:36:51 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,22 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	long_n;
-
-	if (n > 2147483647 || n < -2147483648)
-		return ;
 	if (fd < 0)
 		return ;
-	long_n = n;
-	if (long_n < 0)
+	if (n == -2147483648)
 	{
 		ft_putchar_fd('-', fd);
-		long_n = -long_n;
+		ft_putchar_fd('2', fd);
+		n = 147483648;
 	}
-	if (long_n < 10)
-		ft_putchar_fd((long_n + '0'), fd);
-	if (long_n > 9)
+	if (n < 0)
 	{
-		ft_putnbr_fd((long_n / 10), fd);
-		ft_putnbr_fd((long_n % 10), fd);
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+	}
+	ft_putchar_fd((n % 10) + '0', fd);
 }
-/*
-int	main(void)
-{
-	int	fd;
-	int	c;
-
-	fd = open("test.txt", O_RDWR);
-	c= 2147483647;
-	ft_putnbr_fd(c, fd);
-	return (0);
-}
-*/

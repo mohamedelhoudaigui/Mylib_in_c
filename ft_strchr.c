@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:15:25 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/05 02:04:16 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:26:37 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	u_c;
+	int	i;
+	int	len;
 
-	u_c = (unsigned char)c;
-	while (*s)
+	i = 0;
+	len = ft_strlen(s);
+	while (i <= len)
 	{
-		if (*s == u_c)
-			return ((char *)s);
-		s++;
-	}
-	if (u_c == '\0')
-	{
-		return ((char *)s);
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i++;
 	}
 	return (NULL);
 }
-/*
-int	main(void)
-{
-	char *s = "hello world";
-	printf("%p\n", ft_strchr(s, 'z' + 256));
-	return (0);
-}*/

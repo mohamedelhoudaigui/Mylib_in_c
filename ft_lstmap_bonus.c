@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-houd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:12:36 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/04 15:20:31 by mel-houd         ###   ########.fr       */
+/*   Updated: 2023/11/06 02:20:55 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_root;
-	t_list	*head;
+	t_list	*new_list;
+	t_list	*tmp;
+	void	*content;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	new_root = ft_lstnew(f(lst->content));
-	if (!new_root)
-		return (NULL);
-	head = new_root;
-	lst = lst->next;
+	new_list = NULL;
 	while (lst)
 	{
-		new_root->next = ft_lstnew(f(lst->content));
-		if (!new_root->next)
+		content = f(lst->content);
+		tmp = ft_lstnew(content);
+		if (!tmp)
 		{
-			ft_lstclear(&new_root, del);
+			del(content);
+			ft_lstclear(&new_list, del);
 			return (NULL);
 		}
-		new_root = new_root->next;
+		ft_lstadd_back(&new_list, tmp);
 		lst = lst->next;
 	}
-	return (head);
+	return (new_list);
 }
