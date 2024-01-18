@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstprint_str.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 15:42:29 by mel-houd          #+#    #+#             */
-/*   Updated: 2024/01/18 12:37:41 by mel-houd         ###   ########.fr       */
+/*   Created: 2024/01/17 12:25:35 by mel-houd          #+#    #+#             */
+/*   Updated: 2024/01/17 12:28:16 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, int n)
+void	ft_lstprint_str(t_list *head)
 {
-	int i;
-
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
+	if (!head)
+		return ;
+	while (head)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		++i;
+		ft_putendl_fd(head->content, 1);
+		head = head->next;
 	}
-	if (i != n)
-		return (s1[i] - s2[i]);
-	return (0);
 }

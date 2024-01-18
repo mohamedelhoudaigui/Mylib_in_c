@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstfind_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 15:42:29 by mel-houd          #+#    #+#             */
-/*   Updated: 2024/01/18 12:37:41 by mel-houd         ###   ########.fr       */
+/*   Created: 2024/01/17 17:05:22 by mel-houd          #+#    #+#             */
+/*   Updated: 2024/01/17 17:09:47 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *s1, char *s2, int n)
+t_list	*ft_lstfind_str(t_list **list, char *compare)
 {
-	int i;
+	t_list	*head;
 
-	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
+	if (!list)
+		return (NULL);
+	head = *list;
+	if (!head)
+		return (NULL);
+	while(head)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		++i;
+		if (head->content != NULL)
+		{
+			if (ft_strncmp(head->content, compare, ft_strlen(head->content)) == 0)
+				return (head);
+		}
+		head = head->next;
 	}
-	if (i != n)
-		return (s1[i] - s2[i]);
-	return (0);
+	return (NULL);
 }
