@@ -6,7 +6,7 @@
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 22:14:45 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/10 19:52:29 by mel-houd         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:40:44 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_getend(s1, set);
 	if (start >= end)
 		return (ft_strdup(""));
-	newstr = (char *)malloc(sizeof(char) * (end - start + 1));
+	newstr = (char *)gb_malloc(sizeof(char) * (end - start + 1), 0);
 	if (newstr == NULL)
 		return (NULL);
 	ft_strlcpy(newstr, s1 + start, end - start + 1);

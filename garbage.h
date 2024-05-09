@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   garbage.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 19:39:11 by mel-houd          #+#    #+#             */
-/*   Updated: 2024/04/22 23:33:56 by mel-houd         ###   ########.fr       */
+/*   Created: 2024/03/05 21:17:29 by mel-houd          #+#    #+#             */
+/*   Updated: 2024/03/06 00:59:29 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GARBAGE_H
 
-void	*ft_calloc(size_t count, size_t size)
+# define GARBAGE_H
+
+# include <stdlib.h>
+
+typedef struct s_garb
 {
-	void	*res;
+	void			*addr;
+	struct s_garb	*next;
+}				t_garb ;
 
-	res = gb_malloc(count * size, 0);
-	if (!res)
-		return (NULL);
-	ft_bzero(res, count * size);
-	return (res);
-}
+void	clear_list(t_garb *list);
+void	add_node(t_garb **list, t_garb *node);
+void	*gb_malloc(size_t size, int type);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:59:04 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/09 11:03:24 by mel-houd         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:33:16 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*malloc_space(size_t size)
 {
 	char	*res;
 
-	res = (char *)malloc(size * sizeof(char));
+	res = (char *)gb_malloc(size * sizeof(char), 0);
 	if (!res)
 		return (NULL);
 	return (res);

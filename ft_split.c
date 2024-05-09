@@ -6,7 +6,7 @@
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:54:26 by mel-houd          #+#    #+#             */
-/*   Updated: 2024/01/16 01:27:50 by mel-houd         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:40:17 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char *delimiters)
 	char	**res;
 
 	number_words = count_words(s, delimiters);
-	res = (char **)malloc(sizeof(char *) * (number_words + 1));
+	res = (char **)gb_malloc(sizeof(char *) * (number_words + 1), 0);
 	if (!res || fill_string(s, delimiters, res, number_words))
 		return (NULL);
 	return (res);

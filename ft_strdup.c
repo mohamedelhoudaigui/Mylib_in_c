@@ -6,7 +6,7 @@
 /*   By: mel-houd <mel-houd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:04:52 by mel-houd          #+#    #+#             */
-/*   Updated: 2023/11/09 11:03:06 by mel-houd         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:33:33 by mel-houd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s1)
 
 	i = 0;
 	size = ft_strlen(s1);
-	res = (char *)malloc(size * sizeof(char) + 1);
+	res = (char *)gb_malloc(size * sizeof(char) + 1, 0);
 	if (!res)
 		return (NULL);
 	i = -1;

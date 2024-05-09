@@ -4,17 +4,19 @@ SRCS			=	ft_isalpha.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 					ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c \
 					ft_memmove.c ft_putnbr_fd.c  ft_strdup.c  ft_strlen.c  ft_strrchr.c \
 					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
-					ft_putstr_fd.c  ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_striteri.c
-OBJS			= $(SRCS:.c=.o)
-
-BONUS			=	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+					ft_putstr_fd.c  ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_striteri.c \
+					get_next_line.c ft_lstadd_back_bonus.c \
+					ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
 					ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
 					ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstprint_str.c \
-					ft_lstfind_str.c
-BONUS_OBJS		= $(BONUS:.c=.o)
+					ft_memdel.c ft_strdel.c ft_strsub.c ft_strnew.c garbage.c
+
+OBJS			= $(SRCS:.c=.o)
 
 CC				= cc
+
 RM				= rm -f
+
 CFLAGS			= -c -Wall -Wextra -Werror -g -I.
 
 NAME			= libft.a
@@ -24,7 +26,7 @@ all:			$(NAME)
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
-%.o:%.c libft.h
+%.o:%.c libft.h get_next_line.h garbage.h
 	$(CC) $(CFLAGS) $<
 
 clean:
@@ -35,7 +37,4 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-bonus: $(BONUS_OBJS)
-		ar rcs $(NAME) $(BONUS_OBJS)
-
-.PHONY:	all clean fclean re bonus
+.PHONY: clean
